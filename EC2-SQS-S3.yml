@@ -25,6 +25,21 @@ Parameters:
     Default: 600
     Type: "String"
     Description: "The length of time that the eval periods will check within, E.g 600 seconds / 10 evals = checking every 60 seconds for 600 seconds"
+ CPUAlarmLowThreshold:
+    Default: 20
+    Type: "String"
+    Description: "This is the metric on which the alarm is activated.  Our metric is percentage of CPU usage that will trigger the scaling group"
+
+  CPUAlarmLowEvalPeriods:
+    Default: 20
+    Type: "String"
+    Description: "This is how many times the metric is checked during the alarm period"
+
+  AlarmPeriod:
+    Default: 600
+    Type: "String"
+    Description: "The length of time that the eval periods will check within, E.g 600 seconds / 10 evals = checking every 60 seconds for 600 seconds"
+
 
   UpdatePauseTime:
     Default: "PT0S"
