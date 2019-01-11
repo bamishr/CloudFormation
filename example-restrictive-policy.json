@@ -21,7 +21,29 @@
             ],
             "Resource": [
                 "*"
+            
+	     {
+            "Sid": "AllowBasicAccessToElastiCache",
+            "Effect": "Allow",
+            "Action": [
+                "elasticache:DescribeCacheClusters",
+                "elasticache:DescribeCacheEngineVersions",
+                "elasticache:DescribeCacheParameterGroups",
+                "elasticache:DescribeCacheParameters",
+                "elasticache:DescribeCacheSecurityGroups",
+                "elasticache:DescribeCacheSubnetGroups",
+                "elasticache:DescribeEngineDefaultParameters",
+                "elasticache:DescribeEvents",
+                "elasticache:DescribeReplicationGroups",
+                "elasticache:DescribeReservedCacheNodes",
+                "elasticache:DescribeReservedCacheNodesOfferings",
+                "elasticache:DescribeSnapshots",
+                "elasticache:ListTagsForResource"
+            ],
+            "Resource": [
+                "*"
             ]
+]
         },
         {
             "Sid": "AllowBasicAccessToCloudWatch",
