@@ -32,6 +32,42 @@ Parameters:
         Type: "String"
     CnameEntry:
         Type: "String"
+ PublicSubnet2Id:
+        Type: "String"
+    PublicSubnet3Id:
+        Type: "String"
+    PrivateSubnet1Id:
+        Type: "String"
+    PrivateSubnet2Id:
+        Type: "String"
+    PrivateSubnet3Id:
+        Type: "String"
+    S3BucketArn:
+        Type: "String"
+    DataDirectory:
+        Type: "String"
+    DomainNameBase:
+        Type: "String"
+    CnameEntry:
+        Type: "String"
+ PublicSubnet2Id:
+        Type: "String"
+    PublicSubnet3Id:
+        Type: "String"
+    PrivateSubnet1Id:
+        Type: "String"
+    PrivateSubnet2Id:
+        Type: "String"
+    PrivateSubnet3Id:
+        Type: "String"
+    S3BucketArn:
+        Type: "String"
+    DataDirectory:
+        Type: "String"
+    DomainNameBase:
+        Type: "String"
+    CnameEntry:
+        Type: "String"
 
 Resources:
     ComponentLaunchConfiguration:
