@@ -27,7 +27,27 @@ Resources:
       WebsiteConfiguration:
         ErrorDocument: index.html
         IndexDocument: index.html
-  portalbucketpolicy:
+ iamkeys:
+    DependsOn: iamuser
+    Type: "AWS::IAM::AccessKey"
+    Properties:
+      UserName: cdllcportal
+  portalbucket:
+    Type: "AWS::S3::Bucket"
+    Properties:
+      CorsConfiguration:
+        CorsRules:
+          -  AllowedHeaders: ['*']
+             AllowedMethods: ['GET']
+             AllowedOrigins: ['*']
+             Id: rule1
+             MaxAge: '3000'
+      AccessControl: PublicRead
+      WebsiteConfiguration:
+        ErrorDocument: index.html
+        IndexDocument: index.html
+
+        portalbucketpolicy:
     Type: "AWS::S3::BucketPolicy"
     Properties:
       Bucket: !Ref portalbucket
