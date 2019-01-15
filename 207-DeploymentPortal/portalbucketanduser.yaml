@@ -72,4 +72,23 @@ Outputs:
   adminsecretkey:
     Description: Portal Secret Access Key
     Value: !GetAtt iamkeys.SecretAccessKey
+iamkeys:
+    DependsOn: iamuser
+    Type: "AWS::IAM::AccessKey"
+    Properties:
+      UserName: cdllcportal
+  portalbucket:
+    Type: "AWS::S3::Bucket"
+    Properties:
+      CorsConfiguration:
+        CorsRules:
+          -  AllowedHeaders: ['*']
+             AllowedMethods: ['GET']
+             AllowedOrigins: ['*']
+             Id: rule1
+             MaxAge: '3000'
+      AccessControl: PublicRead
+      WebsiteConfiguration:
+        ErrorDocument: index.html
+        IndexDocument: index.html
 
