@@ -1,3 +1,4 @@
+
 # The only required property in a CloudFormation document is Resources
 # Everything else is optional
 
@@ -128,4 +129,38 @@ Outputs:
           - Fn::GetAtt:
               - "Ec2Instance"
               - "PublicIp"
-          - ":3000"
+
+              - ":3000"
+
+
+                # When pushing this CloudFormation we need to provide the public half of our key-pair
+# See http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html
+#
+# Then when attempting to SSH into the instance we can provide the private half
+# See https://gist.github.com/Integralist/438898d6164daebec0c9
+Resources:
+  Ec2Instance:
+    Type: "AWS::EC2::Instance"
+    Properties:
+      KeyName:
+        Ref: "KeyName"
+      SecurityGroups:
+        - Ref: "InstanceSecurityGroup"
+
+      # Select the correct AMI to load (based on the region the stack is created)
+      ImageId:
+        Fn::FindInMap:
+          - "RegionMap"
+          - Ref: "AWS::Region"
+          - "AMI"
+
+      # Amazon's Linux AMI comes with a Ubuntu package called cloud-init installed
+      # This package simplifies running bootstrapping code on the EC2 instance
+      #
+      # We use the Fn::Base64 function to base64 encode the user data and to
+      # allow parameters and references from the template to be substituted
+      # in the script at runtime
+      #
+      # We also use a curl command to indicate to our WaitCondition resource
+      # that the application has started successfully.
+EC2
