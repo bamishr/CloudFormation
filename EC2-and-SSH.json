@@ -45,6 +45,20 @@
         "Path": "/",
         "Roles": [{"Ref": "Role"}]
       }
+       "Mappings": {
+    "RegionMap": {
+      "eu-west-1": {"AMI": "ami-31328842"},
+      "ap-southeast-1": {"AMI": "ami-e90dc68a"},
+      "ap-southeast-2": {"AMI": "ami-f2210191"},
+      "eu-central-1": {"AMI": "ami-e2df388d"},
+      "ap-northeast-2": {"AMI": "ami-6598510b"},
+      "ap-northeast-1": {"AMI": "ami-f80e0596"},
+      "us-east-1": {"AMI": "ami-08111162"},
+      "sa-east-1": {"AMI": "ami-1e159872"},
+      "us-west-1": {"AMI": "ami-1b0f7d7b"},
+      "us-west-2": {"AMI": "ami-c229c0a2"}
+    }
+
     },
     "Role": {
       "Type": "AWS::IAM::Role",
