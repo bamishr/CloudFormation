@@ -17,6 +17,12 @@ Parameters:
     MinLength: 1
     MaxLength: 64
     AllowedPattern: "[a-zA-Z][a-zA-Z0-9]*" # start with a letter, only alphanumeric characters - new for this lesson
+  DatabaseName:
+    Type: String
+    Default: wordpress
+    MinLength: 1
+    MaxLength: 64
+    AllowedPattern: "[a-zA-Z][a-zA-Z0-9]*" # start with a letter, only alphanumeric characters - new for this lesson
   DatabaseUser:
     Type: String
     MinLength: 1
