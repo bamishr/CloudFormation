@@ -17,6 +17,16 @@ Parameters:
     Type: String
     Default: w0rdpr355
     NoEcho: true
+  DatabaseName:
+    Type: String
+    Default: wordpress
+  DatabaseUser:
+    Type: String
+    Default: wordpress
+  DatabasePassword:
+    Type: String
+    Default: w0rdpr355
+    NoEcho: true
 Mappings:
   RegionMap:
     us-east-1:
@@ -70,6 +80,16 @@ Resources:
       MasterUserPassword: !Ref DatabasePassword
   EC2:
     Type: "AWS::EC2::Instance"
+    Properties:
+      ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", AMALINUX] # Dynamic mapping + Pseudo Parameter
+      InstanceType: !FindInMap [InstanceSize, !Ref EnvironmentSize, EC2]
+      KeyName: AdvancedCFN
+      Type: "AWS::EC2::Instance"
+    Properties:
+      ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", AMALINUX] # Dynamic mapping + Pseudo Parameter
+      InstanceType: !FindInMap [InstanceSize, !Ref EnvironmentSize, EC2]
+      KeyName: AdvancedCF
+      Type: "AWS::EC2::Instance"
     Properties:
       ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", AMALINUX] # Dynamic mapping + Pseudo Parameter
       InstanceType: !FindInMap [InstanceSize, !Ref EnvironmentSize, EC2]

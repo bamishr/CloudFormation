@@ -22,6 +22,18 @@
 			"Type" : "String",
 			"Default" : "w0rdpr355"
 		}
+		"DatabaseName" : {
+			"Type" : "String",
+			"Default" : "wordpress"
+		},
+		"DatabaseUser" : {
+			"Type" : "String",
+			"Default" : "wordpress"
+		},
+		"DatabasePassword" : {
+			"Type" : "String",
+			"Default" : "w0rdpr355"
+		}
 	},
 	"Mappings": {
 		"RegionMap": {
@@ -83,6 +95,20 @@
 				"DB": "db.t2.medium"
 			}
 		}
+		{
+			"SMALL": {
+				"EC2": "t2.micro",
+				"DB": "db.t2.micro"
+			},
+			"MEDIUM": {
+				"EC2": "t2.small",
+				"DB": "db.t2.small"
+			},
+			"LARGE": {
+				"EC2": "t2.medium",
+				"DB": "db.t2.medium"
+			}
+		}
 	},
 	"Resources": {
 		"DB": {
@@ -105,6 +131,22 @@
 				"KeyName" : "AdvancedCFN",
 				"UserData" : {"Fn::Base64" : {"Fn::Join" : ["", [
 						"#!/bin/bash", "\n",
+						"yum install httpd php mysql php-mysql -y", "\n",
+						"yum update -y", "\n",
+						"chkconfig httpd on", "\n",
+						"service httpd start", "\n",
+						"cd /var/www/html", "\n",
+						"wget https://wordpress.org/latest.tar.gz", "\n",
+						"tar -zxvf latest.tar.gz --strip 1", "\n",
+						"rm latest.tar.gz", "\n",
+						"yum install httpd php mysql php-mysql -y", "\n",
+						"yum update -y", "\n",
+						"chkconfig httpd on", "\n",
+						"service httpd start", "\n",
+						"cd /var/www/html", "\n",
+						"wget https://wordpress.org/latest.tar.gz", "\n",
+						"tar -zxvf latest.tar.gz --strip 1", "\n",
+						"rm latest.tar.gz", "\n",
 						"yum install httpd php mysql php-mysql -y", "\n",
 						"yum update -y", "\n",
 						"chkconfig httpd on", "\n",
