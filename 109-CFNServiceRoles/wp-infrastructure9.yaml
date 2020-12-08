@@ -49,6 +49,13 @@ Conditions:
     !Not [!Equals [!Ref EnvironmentSize, "LARGE"]]
   isRestore:
     !Not [!Equals [!Ref SnapToRestore, ""]]
+Conditions:
+  isLarge:
+    !Equals [!Ref EnvironmentSize, "LARGE"]
+  isntLarge:
+    !Not [!Equals [!Ref EnvironmentSize, "LARGE"]]
+  isRestore:
+    !Not [!Equals [!Ref SnapToRestore, ""]]
 Mappings:
   RegionMap:
     us-east-1:
