@@ -103,6 +103,15 @@
 				"MasterUsername": "wordpress",
 				"MasterUserPassword": "w0rdpr355"
 			}
+			"Properties": {
+				"AllocatedStorage": 5,
+				"StorageType" : "gp2",
+				"DBInstanceClass": {"Fn::FindInMap" : ["InstanceSize", {"Ref" : "EnvironmentSize"}, "DB"]},
+				"DBName": "wordpress",
+				"Engine": "MySQL",
+				"MasterUsername": "wordpress",
+				"MasterUserPassword": "w0rdpr355"
+			}
 			"DB2": {
 			"Type": "AWS::RDS::DBInstance",
 			"Properties": {
