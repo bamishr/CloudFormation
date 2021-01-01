@@ -20,3 +20,9 @@ Outputs:
   adminsecretkey:
     Description: Support Secret Access Key
     Value: !GetAtt iamkeys.SecretAccessKey
+     adminakid:
+    Description: Support Access Key ID
+    Value: !Ref iamkeys
+  adminsecretkey:
+    Description: Support Secret Access Key
+    Value: !GetAtt iamkeys.SecretAccessKey
