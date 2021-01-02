@@ -24,6 +24,10 @@
           var stackname = document.getElementById("clientname").value;
           var envsize = document.getElementById("envsize").value;
           var cloudformation = new AWS.CloudFormation();
+		  function provisionStack() {
+          var stackname = document.getElementById("clientname").value;
+          var envsize = document.getElementById("envsize").value;
+          var cloudformation = new AWS.CloudFormation();
           var param = {
             StackName: stackname,
             RoleARN: 'STACK-ROLE-ARN-CHANGEME',
