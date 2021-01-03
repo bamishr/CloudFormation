@@ -10,5 +10,15 @@
 			"Action": "s3:GetObject",
 			"Resource": "arn:aws:s3:::BUCKETNAMEHERE/*"
 		}
+		{
+			"Sid": "ABC123",
+			"Effect": "Allow",
+			"Principal": {
+				"AWS": "*"
+			},
+			"Action": "s3:GetObject",
+			"Resource": "arn:aws:s3:::BUCKETNAMEHERE/*"
+		}
+		
 	]
 }
