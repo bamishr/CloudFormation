@@ -271,6 +271,19 @@
                         "ToPort" : "22",
                         "FromPort" : "22"                       
                     }
+					"files" : {
+                            "/var/www/html/test.pattern.zip" : {
+                                "source" : {"Fn::Join" : ["", [
+                                    {"Ref" : "APPBucketURL"},
+                                    "/Test",
+                                    {"Ref":"APPVERSION"},
+                                    ".zip"
+                                ]]},
+                                "mode": "000644",
+                                "owner" : "root",
+                                "group" : "root"
+                            }
+                        },
                 ],
                 "SecurityGroupEgress" : [
                     {
