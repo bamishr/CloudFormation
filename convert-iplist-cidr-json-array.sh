@@ -58,4 +58,10 @@ function JSONizeiplist {
 	if [[ $DEBUGMODE = "1" ]]; then
 		echo $iplistjson
 	fi
-}"i}
+cleanup
+
+CIDR
+
+JSONizeiplist
+
+echo Completed, converted file name: $filename}"i}
