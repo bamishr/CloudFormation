@@ -32,4 +32,10 @@ while read iplist
 		else echo $iplist >> CIDR-"$filename"
 		fi
 	done < "$filename"
-}
+# Convert the list to JSON array
+function JSONizeiplist {
+
+	# Use CIDR file if it exists
+	if [ -f CIDR-"$filename" ]; then
+		filename=CIDR-"$filename"
+	fi}
