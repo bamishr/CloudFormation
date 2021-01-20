@@ -46,4 +46,16 @@ function JSONizeiplist {
 			echo "IP: "$iplist
 		fi
 		echo \"$iplist\",>> iplistjson2
-	done < "$filename"i}
+	done < "$filenamecat iplistjson2 | sed '$ s/.$//' >> iplistjson3
+
+	echo "]">> iplistjson3
+
+	rm iplistjson2 && mv iplistjson3 JSON-"$filename"
+
+	iplistjson=$(cat "$filename")
+	filename=JSON-"$filename"
+
+	if [[ $DEBUGMODE = "1" ]]; then
+		echo $iplistjson
+	fi
+}"i}
