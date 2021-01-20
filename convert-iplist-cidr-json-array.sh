@@ -13,3 +13,11 @@ function cleanup {
 	# echo "iplist cleanup completed."
 }
 
+# Convert the list to CIDR notation if needed
+function CIDR {
+
+	# Remove existing file
+	if [ -f CIDR-"$filename" ]; then
+		rm CIDR-"$filename"
+	fi
+
