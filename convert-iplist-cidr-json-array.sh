@@ -20,4 +20,16 @@ function CIDR {
 	if [ -f CIDR-"$filename" ]; then
 		rm CIDR-"$filename"
 	fi
+while read iplist
+	do
+		if [[ $DEBUGMODE = "1" ]]; then
+			echo "IP: "$iplist
+		fi
 
+		# Test for CIDR notation
+		if ! echo $iplist | egrep -q '^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\/([0-9]|[1-2][0-9]|3[0-2]))$'; then
+			echo $iplist/32 >> CIDR-"$filename"
+		else echo $iplist >> CIDR-"$filename"
+		fi
+	done < "$filename"
+}
