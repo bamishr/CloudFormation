@@ -231,15 +231,7 @@ Resources:
               mode: "000400"
               owner: root
               group: root
-          services:
-            sysvinit:
-              cfn-hup:
-                enabled: "true"
-                ensureRunning: "true"
-                files:
-                  - "/etc/cfn/cfn-hup.conf"
-                  - "/etc/cfn/hooks.d/cfn-auto-reloader.conf"
-        install_www:
+              install_www:
           packages:
             yum:
               httpd: []
@@ -249,6 +241,15 @@ Resources:
               httpd:
                 enabled: "true"
                 ensureRunning: "true"
+          services:
+            sysvinit:
+              cfn-hup:
+                enabled: "true"
+                ensureRunning: "true"
+                files:
+                  - "/etc/cfn/cfn-hup.conf"
+                  - "/etc/cfn/hooks.d/cfn-auto-reloader.conf"
+        q
         config_app:
           sources:
             /var/www/html: !Join ["",[!Ref APPBucketURL, "/App", !Ref APPVERSION, ".zip"]]
