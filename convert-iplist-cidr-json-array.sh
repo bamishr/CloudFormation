@@ -38,4 +38,12 @@ function JSONizeiplist {
 	# Use CIDR file if it exists
 	if [ -f CIDR-"$filename" ]; then
 		filename=CIDR-"$filename"
-	fi}
+	fecho "[">> iplistjson2
+
+	while read iplist
+	do
+		if [[ $DEBUGMODE = "1" ]]; then
+			echo "IP: "$iplist
+		fi
+		echo \"$iplist\",>> iplistjson2
+	done < "$filename"i}
