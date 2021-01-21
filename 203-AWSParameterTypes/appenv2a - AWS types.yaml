@@ -232,6 +232,18 @@ Resources:
               owner: root
               group: root
               install_www:
+              /etc/cfn/cfn-hup.conf:
+              content: !Sub |
+                [main]
+                stack=${AWS::StackId}
+                region=${AWS::Region}
+                verbose=true
+                interval=5
+              mode: "000400"
+              owner: root
+              group: root
+              install_www:
+              
           packages:
             yum:
               httpd: []
